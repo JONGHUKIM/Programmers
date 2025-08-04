@@ -3,11 +3,13 @@ class Solution {
         
         int answer = 0;
         
-        for (int i = 1; i <= n; i++) {
-            if (0 < i && i <= 1000 && i % 2 == 0) {
+        for (int i = 2; i <= n; i+=2) {
+            if (0 < i && i <= 1000) {
                 answer += i;
             }
         }
         return answer;
     }
+    
+    
 }
