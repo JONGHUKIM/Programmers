@@ -2,8 +2,8 @@ class Solution {
     public double solution(int[] numbers) {
         double answer = 0;
         
-        for (int number : numbers) {
-            answer += number;
+        for (int numb : numbers) {
+            answer += numb;
         }
         
         double avg = answer / numbers.length;
