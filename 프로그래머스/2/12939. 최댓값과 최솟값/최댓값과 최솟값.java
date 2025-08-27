@@ -1,4 +1,6 @@
-import java.util.*;
+// 복습
+
+import java.util.Arrays;
 
 class Solution {
     public String solution(String s) {
@@ -11,9 +13,9 @@ class Solution {
         
         Arrays.sort(numbs);
         
-        int minNumb = numbs[0];
-        int maxNumb = numbs[numbs.length - 1];
+        int minNumbs = numbs[0];
+        int maxNumbs = numbs[stArr.length - 1];
         
-        return minNumb + " " + maxNumb;
+        return minNumbs + " " + maxNumbs;
     }
 }
