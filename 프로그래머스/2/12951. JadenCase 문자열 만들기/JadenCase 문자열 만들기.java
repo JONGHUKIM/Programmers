@@ -1,9 +1,11 @@
+// 복습
+
 class Solution {
     public String solution(String s) {
         String[] words = s.toLowerCase().split(" ");
         StringBuilder sb = new StringBuilder();
         
-        for ( String word : words) {
+        for (String word : words) {
             if (word.length() > 0) {
                 String firstChar = word.substring(0, 1);
                 String rest = word.substring(1);
@@ -13,7 +15,6 @@ class Solution {
                 sb.append(" ");
             }
         }
-        
         if (s.endsWith(" ")) {
             return sb.toString();
         } else {
