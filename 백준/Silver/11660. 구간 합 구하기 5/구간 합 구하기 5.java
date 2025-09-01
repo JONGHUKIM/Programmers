@@ -8,16 +8,16 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader br =
+        BufferedReader br = 
             new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = 
             new StringTokenizer(br.readLine());
         
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        long d[][] = new long [n + 1][n + 1];
+        long[][] d = new long[n + 1][n + 1];
         
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= n; i++){
             st = new StringTokenizer(br.readLine());
             for (int j = 1; j <= n; j++) {
                 d[i][j] = d[i][j-1] + d[i-1][j] - d[i-1][j-1] 
