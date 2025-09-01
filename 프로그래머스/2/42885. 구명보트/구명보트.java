@@ -1,4 +1,6 @@
-import java.util.Arrays;
+// 복습
+
+import java.util.*;
 
 class Solution {
     public int solution(int[] people, int limit) {
@@ -14,6 +16,7 @@ class Solution {
             if (people[left] + people[right] <= limit) {
                 left++;
             }
+            
             right--;
         }
         return boat;
