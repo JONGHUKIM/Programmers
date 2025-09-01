@@ -20,7 +20,5 @@ public class Main {
         }
         
         System.out.println(avg * 100 / max / n);
-        
-        sc.close();
     }
 }
