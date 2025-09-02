@@ -8,23 +8,21 @@ public class Main {
         StringTokenizer st = 
             new StringTokenizer(br.readLine());
         
-        int suNo = Integer.parseInt(st.nextToken());
-        int quizNo = Integer.parseInt(st.nextToken());
-        long[] s = new long[suNo + 1];
+        int su = Integer.parseInt(st.nextToken());
+        int quiz = Integer.parseInt(st.nextToken());
+        long[] s = new long[su + 1];
         
         st = new StringTokenizer(br.readLine());
-        for (int i = 1; i <= suNo; i++) {
+        for (int i = 1; i <= su; i++) {
             s[i] = s[i - 1] + Integer.parseInt(st.nextToken());
         }
         
-        for (int q = 0; q < quizNo; q++) {
+        for (int q = 0; q < quiz; q++) {
             st = new StringTokenizer(br.readLine());
             int i = Integer.parseInt(st.nextToken());
             int j = Integer.parseInt(st.nextToken());
             System.out.println(s[j] - s[i - 1]);
         }
-        
-        br.close();
         
     }
 }
