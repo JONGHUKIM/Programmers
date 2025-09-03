@@ -1,11 +1,11 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main (String[] args) throws IOException {
-        BufferedReader br = 
+    public static void main(String[] args) throws IOException {
+        BufferedReader br =
             new BufferedReader (new InputStreamReader(System.in));
-        StringTokenizer st = 
+        StringTokenizer st =
             new StringTokenizer (br.readLine());
         
         int n = Integer.parseInt(st.nextToken());
@@ -13,13 +13,13 @@ public class Main {
         int sum = 0;
         int max = 0;
         
-        st = new StringTokenizer(br.readLine());
+        st = new StringTokenizer (br.readLine());
         for (int i = 0; i < n; i++) {
             a[i] = Integer.parseInt(st.nextToken());
         }
-
-        for (int i =0; i < n; i++) {
-            if (a[i] > max ) {
+        
+        for (int i = 0; i < n; i++) {
+            if (a[i] > max) {
                 max = a[i];
             }
             
@@ -27,5 +27,7 @@ public class Main {
         }
         
         System.out.println(sum * 100.0 / max / n);
+        
+        br.close();
     }
 }
