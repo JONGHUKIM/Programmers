@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static void main (String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = 
             new BufferedReader (new InputStreamReader(System.in));
         StringTokenizer st =
@@ -10,23 +10,26 @@ public class Main {
         
         int n = Integer.parseInt(st.nextToken());
         int count = 1;
-        int start_index = 1;
-        int end_index = 1;
         int sum = 1;
+        int s = 1;
+        int e = 1;
         
-        while (end_index != n) {
+        while (e != n) {
             if (sum == n) {
                 count++;
-                end_index++;
-                sum = sum + end_index;
+                e++;
+                sum = sum + e;
             } else if (sum > n) {
-                sum = sum - start_index;
-                start_index++;
+                sum = sum - s;
+                s++;
+
             } else {
-                end_index++;
-                sum = sum + end_index;
+                e++;
+                sum = sum + e;
             }
         }
+        
         System.out.println(count);
+        br.close();
     }
 }
