@@ -3,48 +3,47 @@ import java.io.*;
 
 public class Main {
     public static void main (String[] args) throws IOException {
-        BufferedReader br = 
+        BufferedReader br =
             new BufferedReader (new InputStreamReader(System.in));
+        
         int n = Integer.parseInt(br.readLine());
         int[] a = new int[n];
         
-        StringTokenizer st = new StringTokenizer (br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             a[i] = Integer.parseInt(st.nextToken());
-        }
+        } 
         
         Arrays.sort(a);
-        
         int count = 0;
         
         for (int i = 0; i < n; i++) {
             int target = a[i];
-            int l = 0;
-            int r = n - 1;
+            int left = 0;
+            int right = n - 1;
             
-            while (l < r) {
-                if (l == i) {
-                    l++;
+            while (left < right) {
+                if (left == i) {
+                    left++;
                     continue;
                 }
-                if (r == i) {
-                    r--;
+                if (right == i) {
+                    right--;
                     continue;
                 }
-                int sum = a[l] + a[r];
                 
+                int sum = a[left] + a[right];
                 if (sum == target) {
                     count++;
                     break;
                 } else if (sum < target) {
-                    l++;
+                    left++;
                 } else {
-                    r--;
+                    right--;
                 }
             }
         }
         System.out.println(count);
         br.close();
- 
     }
 }
