@@ -15,15 +15,14 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for (int i = 1; i <= n; i++) {
             a[i] = a[i - 1] + Integer.parseInt(st.nextToken());
-        } 
+        }
         
         for (int q = 0; q < m; q++) {
             st = new StringTokenizer(br.readLine());
             int i = Integer.parseInt(st.nextToken());
             int j = Integer.parseInt(st.nextToken());
-            System.out.println(a[j] - a[i - 1]);
+            System.out.println(a[j] - a[i-1]);
         }
-        
         br.close();
     }
 }
