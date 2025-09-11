@@ -3,32 +3,28 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = 
-            new BufferedReader (new InputStreamReader(System.in));
-        StringTokenizer st =
-            new StringTokenizer (br.readLine());
+        BufferedReader br =
+            new BufferedReader(new InputStreamReader(System.in));
         
-        int n = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(br.readLine());
         int count = 1;
         int sum = 1;
-        int s = 1;
-        int e = 1;
+        int start = 1;
+        int end = 1;
         
-        while (e != n) {
+        while (end != n) {
             if (sum == n) {
                 count++;
-                e++;
-                sum = sum + e;
+                end++;
+                sum += end;
             } else if (sum > n) {
-                sum = sum - s;
-                s++;
-
+                sum -= start;
+                start++;
             } else {
-                e++;
-                sum = sum + e;
+                end++;
+                sum += end;
             }
         }
-        
         System.out.println(count);
         br.close();
     }
