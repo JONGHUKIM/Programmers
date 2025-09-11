@@ -2,40 +2,40 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static void main (String[] args) throws IOException {
-        BufferedReader br =
-            new BufferedReader (new InputStreamReader(System.in));
-        StringTokenizer st =
-            new StringTokenizer (br.readLine());
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = 
+            new BufferedReader(new InputStreamReader(System.in));
         
-        int n = Integer.parseInt(st.nextToken());
         
-        st = new StringTokenizer (br.readLine());
-        int m = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(br.readLine());
+        int m = Integer.parseInt(br.readLine());
         int[] a = new int[n];
         
-        st = new StringTokenizer (br.readLine());
+        StringTokenizer st =
+            new StringTokenizer(br.readLine());
+        
         for (int i = 0; i < n; i++) {
             a[i] = Integer.parseInt(st.nextToken());
         }
         
         Arrays.sort(a);
-        
-        int i = 0;
-        int j = n - 1;
         int count = 0;
+        int left = 0;
+        int right = n - 1;
         
-        while (i < j) {
-            if (a[i] + a[j] > m) {
-                j--;
-            } else if (a[i] + a[j] < m) {
-                i++;
-            } else {
-                count++;
-                i++;
-                j--;
+            while (left < right) {
+                int sum = a[left] + a[right];
+                if (sum == m) {
+                    count++;
+                    left++;
+                    right--;
+                } else if (sum > m) {
+                    right--;
+                } else {
+                    left++;
+                }
             }
-        }
+        
         System.out.println(count);
         br.close();
     }
