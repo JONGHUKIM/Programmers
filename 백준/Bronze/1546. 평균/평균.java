@@ -4,16 +4,15 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br =
-            new BufferedReader (new InputStreamReader(System.in));
-        StringTokenizer st =
-            new StringTokenizer (br.readLine());
-        
-        int n = Integer.parseInt(st.nextToken());
-        int[] a = new int[n];
-        int sum = 0;
+            new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
         int max = 0;
+        int sum = 0;
         
-        st = new StringTokenizer (br.readLine());
+        StringTokenizer st =
+            new StringTokenizer(br.readLine());
+        
+        int[] a = new int[n];
         for (int i = 0; i < n; i++) {
             a[i] = Integer.parseInt(st.nextToken());
         }
@@ -22,12 +21,12 @@ public class Main {
             if (a[i] > max) {
                 max = a[i];
             }
-            
             sum += a[i];
         }
+        double result = (double) sum * 100.0 / max / n;
         
-        System.out.println(sum * 100.0 / max / n);
-        
+        System.out.println(result);
         br.close();
+        
     }
 }
