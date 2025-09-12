@@ -6,36 +6,32 @@ public class Main {
         BufferedReader br =
             new BufferedReader(new InputStreamReader(System.in));
         
-        int n = Integer.parseInt(br.readLine());
         Stack<Integer> stack = new Stack<>();
-        
+        int n = Integer.parseInt(br.readLine());
         boolean result = true;
-        int num = 1; // 오름차순 정렬
-        StringBuffer sf = new StringBuffer();
+        int num = 1;
+        StringBuilder sb = new StringBuilder();
         
         for (int i = 0; i < n; i++) {
             int su = Integer.parseInt(br.readLine());
             if (su >= num) {
                 while (su >= num) {
                     stack.push(num++);
-                    sf.append("+\n");
+                    sb.append("+\n");
                 }
                 stack.pop();
-                sf.append("-\n");
+                sb.append("-\n");
             } else {
-                int m = stack.pop();
-                if (m > su) {
+                if (!stack.isEmpty() && stack.peek() == su) {
+                    stack.pop();
+                    sb.append("-\n");
+                } else {
                     System.out.println("NO");
                     result = false;
                     break;
-                } else {
-                    sf.append("-\n");
                 }
             }
         }
-        if (result) {
-            System.out.println(sf.toString());
-        }
-        
+        if(result) System.out.println(sb.toString());
     }
 }
