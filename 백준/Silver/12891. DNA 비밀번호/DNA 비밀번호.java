@@ -1,49 +1,109 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    static int idx(char c) { // A,C,G,T -> 0,1,2,3
-        return (c=='A') ? 0 : (c=='C') ? 1 : (c=='G') ? 2 : 3;
-    }
-
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+    
+    static int[] checkArr;
+    static int[] myArr;
+    static int checkS;
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader br =
+            new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st =
+            new StringTokenizer(br.readLine());
+        
         int s = Integer.parseInt(st.nextToken());
         int p = Integer.parseInt(st.nextToken());
-
-        char[] a = br.readLine().toCharArray();
-
-        int[] need = new int[4];
+        char[] a;
+        int result = 0;
+        checkArr = new int[4];
+        myArr = new int[4];
+        checkS = 0;
+        
+        a = br.readLine().toCharArray();
         st = new StringTokenizer(br.readLine());
-        int missing = 0;
         for (int i = 0; i < 4; i++) {
-            need[i] = Integer.parseInt(st.nextToken());
-            missing += need[i];
+            checkArr[i] = Integer.parseInt(st.nextToken());
+            if (checkArr[i] == 0) {
+                checkS++;
+            }
         }
-
-        // 초기 윈도우 [0, p-1]
+        
         for (int i = 0; i < p; i++) {
-            int t = idx(a[i]);
-            if (need[t] > 0) missing--;
-            need[t]--;
+            Add(a[i]);
         }
-
-        int result = (missing == 0) ? 1 : 0;
-
-        // 슬라이딩
+        
+        if (checkS == 4) {
+            result++;
+        }
+        
         for (int i = p; i < s; i++) {
-            int out = idx(a[i - p]);
-            if (++need[out] > 0) missing++;   // 빠져나가며 부족해지면 증가
-
-            int in = idx(a[i]);
-            if (need[in] > 0) missing--;      // 들어오며 채워지면 감소
-            need[in]--;
-
-            if (missing == 0) result++;
+            Add(a[i]);
+            Remove(a[i-p]);
+            if(checkS == 4) {
+                result++;
+            }
         }
-
         System.out.println(result);
         br.close();
+    }
+    
+    private static void Remove(char c) {
+        switch (c) {
+            case 'A':
+                if (checkArr[0] == myArr[0]) {
+                    checkS--;
+                }
+                myArr[0]--;
+                break;
+            case 'C':
+                if (checkArr[1] == myArr[1]) {
+                    checkS--;
+                }
+                myArr[1]--;
+                break;
+            case 'G':
+                if (checkArr[2] == myArr[2]) {
+                    checkS--;
+                }
+                myArr[2]--;
+                break;
+            case 'T':
+                if (checkArr[3] == myArr[3]) {
+                    checkS--;
+                }
+                myArr[3]--;
+                break;
+        }
+    }
+    
+    private static void Add(char c) {
+        switch (c) {
+            case 'A':
+                myArr[0]++;
+                if (checkArr[0] == myArr[0]) {
+                    checkS++;
+                }
+                break;
+            case 'C':
+                myArr[1]++;
+                if (checkArr[1] == myArr[1]) {
+                    checkS++;
+                }
+                break;
+            case 'G':
+                myArr[2]++;
+                if (checkArr[2] == myArr[2]) {
+                    checkS++;
+                }
+                break;
+            case 'T':
+                myArr[3]++;
+                if (checkArr[3] == myArr[3]) {
+                    checkS++;
+                }
+                break;
+        }
     }
 }
