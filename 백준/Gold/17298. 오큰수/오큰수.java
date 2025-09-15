@@ -20,18 +20,18 @@ public class Main {
         }
         
         for (int i = 0; i < n; i++) {
-            while(!stack.isEmpty() && a[stack.peek()] < a[i]) {
+            while (!stack.isEmpty() && a[stack.peek()] < a[i]) {
                 ans[stack.pop()] = a[i];
             }
             stack.push(i);
         }
-        while(!stack.isEmpty()) {
-            ans[stack.pop()] = -1;
+        while (!stack.isEmpty()) {
+            ans[stack.pop()] = -1;            
         }
         for (int i = 0; i < n; i++) {
             bw.write(ans[i] + " ");
         }
-        bw.write("\n");
+        bw.newLine();
         bw.flush();
         bw.close();
         br.close();
