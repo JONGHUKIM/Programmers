@@ -8,7 +8,6 @@ public class Main {
         
         Stack<Integer> stack = new Stack<>();
         int n = Integer.parseInt(br.readLine());
-        boolean result = true;
         int num = 1;
         StringBuilder sb = new StringBuilder();
         
@@ -27,11 +26,11 @@ public class Main {
                     sb.append("-\n");
                 } else {
                     System.out.println("NO");
-                    result = false;
-                    break;
+                    return;
                 }
             }
         }
-        if(result) System.out.println(sb.toString());
+        System.out.println(sb.toString());
+        
     }
 }
