@@ -7,10 +7,10 @@ public class Main {
             new BufferedReader(new InputStreamReader(System.in));
         
         int n = Integer.parseInt(br.readLine());
-        int count = 1;
-        int sum = 1;
         int start = 1;
         int end = 1;
+        int count = 1; 
+        int sum = 1;
         
         while (end != n) {
             if (sum == n) {
