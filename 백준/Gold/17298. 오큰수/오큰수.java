@@ -17,7 +17,7 @@ public class Main {
             new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             a[i] = Integer.parseInt(st.nextToken());
-        }
+        } 
         
         for (int i = 0; i < n; i++) {
             while (!stack.isEmpty() && a[stack.peek()] < a[i]) {
@@ -26,14 +26,14 @@ public class Main {
             stack.push(i);
         }
         while (!stack.isEmpty()) {
-            ans[stack.pop()] = -1;            
+            ans[stack.pop()] = -1;
         }
         for (int i = 0; i < n; i++) {
             bw.write(ans[i] + " ");
         }
-        bw.newLine();
         bw.flush();
         bw.close();
         br.close();
+        
     }
 }
