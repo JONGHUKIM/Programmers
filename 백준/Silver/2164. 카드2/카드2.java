@@ -8,8 +8,8 @@ public class Main {
         BufferedWriter bw =
             new BufferedWriter(new OutputStreamWriter(System.out));
         
-        Queue<Integer> que = new LinkedList<>();
         int n = Integer.parseInt(br.readLine());
+        Queue<Integer> que = new LinkedList<>();
         
         for (int i = 1; i <= n; i++) {
             que.add(i);
@@ -27,6 +27,5 @@ public class Main {
         bw.flush();
         bw.close();
         br.close();
-        
     }
 }
