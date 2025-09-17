@@ -3,29 +3,30 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = 
+        BufferedReader br =
             new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw =
             new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st =
             new StringTokenizer(br.readLine());
         
+        Deque<Node> deq = new LinkedList<>();
         int n = Integer.parseInt(st.nextToken());
         int l = Integer.parseInt(st.nextToken());
-        Deque<Node> myDeque = new LinkedList<>();
+        
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             int now = Integer.parseInt(st.nextToken());
-            while(!myDeque.isEmpty()&&myDeque.getLast().value > now) {
-                myDeque.removeLast();
+            while (!deq.isEmpty() && deq.getLast().value > now) {
+                deq.removeLast();
             }
-            myDeque.addLast(new Node(now, i));
-            
-            if (myDeque.getFirst().index <= i - l) {
-                myDeque.removeFirst();
+            deq.add(new Node(now, i));
+            if (deq.getFirst().index <= i - l) {
+                deq.removeFirst();
             }
-            bw.write(myDeque.getFirst().value + " ");
-        }
+            bw.write(deq.getFirst().value + " ");
+        }      
+        
         bw.flush();
         bw.close();
         br.close();
@@ -34,7 +35,6 @@ public class Main {
     private static class Node {
         int value;
         int index;
-        
         Node(int value, int index) {
             this.value = value;
             this.index = index;
