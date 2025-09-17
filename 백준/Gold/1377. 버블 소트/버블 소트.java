@@ -6,11 +6,12 @@ public class Main {
         BufferedReader br =
             new BufferedReader(new InputStreamReader(System.in));
         
-        int n = Integer.parseInt(br.readLine());        
-        mData[] a = new mData[n];
+        int n = Integer.parseInt(br.readLine());
+        Number[] a = new Number[n];
         
         for (int i = 0; i < n; i++) {
-            a[i] = new mData(Integer.parseInt(br.readLine()), i);
+            int num = Integer.parseInt(br.readLine());
+            a[i] = new Number(num, i);
         }
         
         Arrays.sort(a);
@@ -21,25 +22,25 @@ public class Main {
                 max = a[i].index - i;
             }
         }
+        
         System.out.println(max + 1);
-
         br.close();
+        
     }
     
-   private static class mData implements Comparable<mData> {
+    private static class Number implements Comparable<Number> {
         int value;
         int index;
         
-        public mData(int value, int index) {
-            super();
+        public Number(int value, int index) {
             this.value = value;
-            this.index = index;            
+            this.index = index;
         }
         
         @Override
-        public int compareTo(mData o) {
+        public int compareTo(Number o) {
             return this.value - o.value;
         }
-    }
+        
+    } 
 }
-
