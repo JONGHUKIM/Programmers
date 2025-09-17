@@ -10,23 +10,22 @@ public class Main {
         PriorityQueue<Integer> pq = new PriorityQueue<>((o1, o2) -> {
             int first = Math.abs(o1);
             int second = Math.abs(o2);
-            if (first == second) { // 절대값이 같은 경우 음수 우선
+            if (first == second) {
                 return o1 > o2 ? 1 : -1;
             }
-            return first - second; // 절대값이 적은 수 우선
+            return first - second;
         });
-        
         for (int i = 0; i < n; i++) {
             int request = Integer.parseInt(br.readLine());
             if (request == 0) {
-                if (pq.isEmpty()) {
-                    System.out.println(0);
-                } else {
+                if (!pq.isEmpty()) {
                     System.out.println(pq.poll());
+                } else {
+                    System.out.println(0);
                 }
             } else {
                 pq.add(request);
-            }
+            }            
         }
     }
 }
