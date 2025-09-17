@@ -1,6 +1,4 @@
-// 스택연습
-
-import java.util.Stack;
+import java.util.*;
 
 class Solution {
     public int solution(int[][] board, int[] moves) {
@@ -23,7 +21,7 @@ class Solution {
                     break;
                 }
             }
-        }
+        }        
         return scores;
     }
 }
