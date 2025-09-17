@@ -6,15 +6,15 @@ public class Main {
         BufferedReader br =
             new BufferedReader(new InputStreamReader(System.in));
         
-        String n = br.readLine();
-        char[] c = n.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        String s = br.readLine();
+        char[] c = s.toCharArray();
         
         Arrays.sort(c);
-        StringBuilder sb = new StringBuilder();
-        for(int i = c.length - 1; i >= 0; i--) {
+        for (int i = c.length - 1; i >= 0; i--) {
             sb.append(c[i]);
         }
-        System.out.print(sb.toString());
+        System.out.println(sb.toString());
         br.close();
     }
 }
