@@ -11,7 +11,6 @@ public class Main {
         
         StringTokenizer st =
             new StringTokenizer(br.readLine());
-        
         for (int i = 0; i < n; i++) {
             a[i] = Integer.parseInt(st.nextToken());
         }
@@ -22,7 +21,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             int left = 0;
             int right = n - 1;
-            int t = a[i];
+            int target = a[i];
             
             while (left < right) {
                 if (left == i) {
@@ -34,17 +33,16 @@ public class Main {
                     continue;
                 }
                 int sum = a[left] + a[right];
-                if (sum == t) {
+                if (sum == target) {
                     count++;
                     break;
-                } else if (sum < t) {
+                } else if (sum < target) {
                     left++;
                 } else {
                     right--;
                 }
             }
         }
-        
         System.out.println(count);
         br.close();
     }
