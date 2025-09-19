@@ -22,7 +22,6 @@ public class Main {
             int left = 0;
             int right = n - 1;
             int target = a[i];
-            
             while (left < right) {
                 if (left == i) {
                     left++;
@@ -41,8 +40,9 @@ public class Main {
                 } else {
                     right--;
                 }
+                
             }
-        }
+        }       
         System.out.println(count);
         br.close();
     }
