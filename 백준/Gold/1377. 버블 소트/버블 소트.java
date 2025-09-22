@@ -25,14 +25,13 @@ public class Main {
         
         System.out.println(max + 1);
         br.close();
-        
     }
     
     private static class Number implements Comparable<Number> {
         int value;
         int index;
         
-        public Number(int value, int index) {
+        public Number (int value, int index) {
             this.value = value;
             this.index = index;
         }
@@ -41,6 +40,5 @@ public class Main {
         public int compareTo(Number o) {
             return this.value - o.value;
         }
-        
-    } 
+    }
 }
