@@ -15,17 +15,22 @@ public class Main {
             }
             return first - second;
         });
+        
+        StringBuilder sb = new StringBuilder();
+        
         for (int i = 0; i < n; i++) {
             int request = Integer.parseInt(br.readLine());
             if (request == 0) {
                 if (!pq.isEmpty()) {
-                    System.out.println(pq.poll());
+                    sb.append(pq.poll()).append("\n");
                 } else {
-                    System.out.println(0);
+                    sb.append("0").append("\n");
                 }
             } else {
                 pq.add(request);
-            }            
+            }
         }
+        System.out.println(sb.toString());
+        br.close();
     }
 }
