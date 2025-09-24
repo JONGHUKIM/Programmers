@@ -1,3 +1,5 @@
+// 복습
+
 import java.util.*;
 
 class Solution {
@@ -21,7 +23,8 @@ class Solution {
                     break;
                 }
             }
-        }        
+        }
+        
         return scores;
     }
 }
