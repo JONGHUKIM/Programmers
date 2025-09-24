@@ -5,6 +5,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br =
             new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw =
+            new BufferedWriter(new OutputStreamWriter(System.out));
         
         int n = Integer.parseInt(br.readLine());
         PriorityQueue<Integer> pq = new PriorityQueue<>((o1, o2) -> {
@@ -30,7 +32,9 @@ public class Main {
                 pq.add(request);
             }
         }
-        System.out.println(sb.toString());
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
         br.close();
     }
 }
