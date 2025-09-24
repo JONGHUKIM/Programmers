@@ -6,10 +6,10 @@ public class Main {
         BufferedReader br =
             new BufferedReader(new InputStreamReader(System.in));
         
-        Stack<Integer> stack = new Stack<>();
         int n = Integer.parseInt(br.readLine());
-        int num = 1;
         StringBuilder sb = new StringBuilder();
+        int num = 1;
+        Stack<Integer> stack = new Stack<>();
         
         for (int i = 0; i < n; i++) {
             int su = Integer.parseInt(br.readLine());
@@ -31,6 +31,5 @@ public class Main {
             }
         }
         System.out.println(sb.toString());
-        
     }
 }
