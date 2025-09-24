@@ -12,7 +12,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             int num = Integer.parseInt(br.readLine());
             a[i] = new Number(num, i);
-        }
+        }                        
         
         Arrays.sort(a);
         int max = 0;
@@ -25,18 +25,18 @@ public class Main {
         
         System.out.println(max + 1);
         br.close();
+        
     }
     
     private static class Number implements Comparable<Number> {
         int value;
         int index;
         
-        public Number (int value, int index) {
+        public Number(int value, int index) {
             this.value = value;
             this.index = index;
         }
         
-        @Override
         public int compareTo(Number o) {
             return this.value - o.value;
         }
