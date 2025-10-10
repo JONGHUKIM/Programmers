@@ -12,12 +12,18 @@ public class Main {
         int b = Integer.parseInt(st.nextToken());
         int c = Integer.parseInt(br.readLine());
         
-        int totalMinute = (a * 60) + b + c;
+        b = b + c;
         
-        int hour = (totalMinute / 60) % 24;
-        int minute = totalMinute % 60;
+        if (b >= 60) {
+            a = a + ( b / 60);
+            b = b % 60;
+        }
         
-        System.out.println(hour + " " + minute);
+        if ( a >= 24) {
+            a = a % 24;
+        }
+        
+        System.out.println(a + " " + b);
         br.close();
     }
 }
