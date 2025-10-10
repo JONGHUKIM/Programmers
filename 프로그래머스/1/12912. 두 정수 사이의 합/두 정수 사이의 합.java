@@ -1,3 +1,5 @@
+// 복습
+
 class Solution {
     public long solution(int a, int b) {
         if ( a == b ) {
