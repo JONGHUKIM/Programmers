@@ -1,4 +1,4 @@
-// 복습
+// 그리디
 
 import java.util.*;
 
