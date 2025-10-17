@@ -1,3 +1,5 @@
+// 확장프로그램 테스트
+
 import java.util.Scanner;
 
 public class Solution {
