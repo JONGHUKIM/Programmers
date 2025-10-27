@@ -11,6 +11,7 @@ class Solution {
             ch[i] = s.charAt(i);
         }
         
+        // reverseOrder!!!
         Arrays.sort(ch, Collections.reverseOrder());
         
         StringBuilder sb = new StringBuilder();
