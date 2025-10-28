@@ -6,6 +6,7 @@ public class Solution {
         
         for (int i = 0; i < c.length; i++) {
             sum += c[i] - '0';
+            // - '0' 중요
         }
         
         return sum;
