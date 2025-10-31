@@ -1,15 +1,13 @@
-// 복습
-
 class Solution {
     public double solution(int[] numbers) {
-        double answer = 0;
+        double avg = 0.0;
         
-        for (int numb : numbers) {
-            answer += numb;
+        for (int num : numbers) {
+            avg += num;
         }
         
-        double avg = answer / numbers.length;
+        double answer = avg / numbers.length;
         
-        return avg;
+        return answer;
     }
 }
