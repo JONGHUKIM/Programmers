@@ -1,4 +1,4 @@
-// 복습
+// 그리디 공부
 
 import java.util.*;
 
