@@ -1,23 +1,20 @@
-// 복습
-
 import java.util.*;
 
 class Solution {
     boolean solution(String s) {
-        Stack<Character> stack = new Stack<>();
+        ArrayDeque<Character> stack = new ArrayDeque<>();
         
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            
-            if ( ch == '(') {
-                stack.push(ch);
-            } else if (ch == ')') {
-                if (stack.empty()) {
+        char[] a = s.toCharArray();
+        for (char c : a) {
+            if (c == '(') {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty() || stack.pop() == c) {
                     return false;
                 }
-                stack.pop();
             }
         }
-        return stack.empty();
+
+        return stack.isEmpty();
     }
 }
