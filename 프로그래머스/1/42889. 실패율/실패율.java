@@ -17,10 +17,10 @@ class Solution {
                 fails.put(i, players[i] / total);
                 total -= players[i];
             }
-        }        
+        }
         return fails.entrySet().stream().sorted((o1, o2) -> 
-        o1.getValue().equals(o2.getValue()) ? Integer.compare(o1.getKey(), 
-        o2.getKey()) : Double.compare(o2.getValue(), 
-        o1.getValue())).mapToInt(HashMap.Entry::getKey).toArray();            
+        o1.getValue().equals(o2.getValue()) ? Integer.compare(o1.getKey(),
+        o2.getKey()) : Double.compare(o2.getValue(),
+        o1.getValue())).mapToInt(HashMap.Entry::getKey).toArray();
     }
 }
