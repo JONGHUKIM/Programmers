@@ -4,12 +4,15 @@ class Solution {
         int[] answer = new int[len];
         
         int idx = 0;
+        
         for (long i = left; i <= right; i++) {
-            int row = (int)(i / n);
             int col = (int)(i % n);
+            int row = (int)(i / n);
             
             answer[idx++] = (int)(Math.max(row, col) + 1);
+            
         }
+        
         return answer;
     }
 }
