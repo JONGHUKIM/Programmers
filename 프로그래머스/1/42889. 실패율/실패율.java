@@ -2,25 +2,25 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int N, int[] stages) {
-        int[] players = new int[N + 2];
+        int[] player = new int[N + 2];
         for (int stage : stages) {
-            players[stage] += 1;
+            player[stage] += 1;
         }
         
         HashMap<Integer, Double> fails = new HashMap<>();
         double total = stages.length;
         
         for (int i = 1; i <= N; i++) {
-            if (players[i] == 0) {
+            if (player[i] == 0) {
                 fails.put(i, 0.);
             } else {
-                fails.put(i, players[i] / total);
-                total -= players[i];
+                fails.put(i, player[i] / total);
+                total -= player[i];
             }
         }
         return fails.entrySet().stream().sorted((o1, o2) -> 
-        o1.getValue().equals(o2.getValue()) ? Integer.compare(o1.getKey(),
-        o2.getKey()) : Double.compare(o2.getValue(),
+        o1.getValue().equals(o2.getValue()) ? Integer.compare(o1.getKey(), 
+        o2.getKey()) : Double.compare(o2.getValue(), 
         o1.getValue())).mapToInt(HashMap.Entry::getKey).toArray();
     }
 }
