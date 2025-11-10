@@ -2,7 +2,7 @@ import java.util.*;
 
 class Solution {
     public int solution(int[][] board, int[] moves) {
-        ArrayDeque<Integer> basket = new ArrayDeque<>();
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
         int scores = 0;
         
         for (int move : moves) {
@@ -12,14 +12,14 @@ class Solution {
                     int doll = board[row][col];
                     board[row][col] = 0;
                     
-                    if (!basket.isEmpty() && basket.peek() == doll) {
-                        basket.pop();
+                    if (!stack.isEmpty() && stack.peek() == doll) {
+                        stack.pop();
                         scores += 2;
                     } else {
-                        basket.push(doll);
+                        stack.push(doll);
                     }
                     break;
-                }                
+                }
             }
         }
         return scores;
