@@ -24,17 +24,19 @@ class Solution {
         ArrayDeque<Node> stack = new ArrayDeque<>();
         
         for (String str : cmd) {
-            if (str.charAt(0) == 'U') {
+            char first = str.charAt(0);
+            
+            if (first == 'U') {
                 int x = Integer.parseInt(str.substring(2));
                 for (int i = 0; i < x; i++) {
                     curr = curr.prev;
                 }
-            } else if (str.charAt(0) == 'D') {
+            } else if (first == 'D') {
                 int x = Integer.parseInt(str.substring(2));
                 for (int i = 0; i < x; i++) {
                     curr = curr.next;
                 }
-            } else if (str.charAt(0) == 'C') {
+            } else if (first == 'C') {
                 stack.push(curr);
                 curr.removed = true;
                 Node up = curr.prev;
@@ -56,7 +58,7 @@ class Solution {
                 Node down = node.next;
                 
                 if (up != null) {
-                    up.next = node;
+                    up.next = node;                    
                 }
                 if (down != null) {
                     down.prev = node;
@@ -64,6 +66,7 @@ class Solution {
             }
         }
         StringBuilder sb = new StringBuilder();
+        
         for (int i = 0; i < n; i++) {
             if (nodeArr[i].removed) {
                 sb.append('X');
