@@ -20,23 +20,21 @@ class Solution {
             nodeArr[i].prev = nodeArr[i - 1];
         }
         
-        Node curr = nodeArr[k];
         ArrayDeque<Node> stack = new ArrayDeque<>();
+        Node curr = nodeArr[k];
         
         for (String str : cmd) {
-            char first = str.charAt(0);
-            
-            if (first == 'U') {
+            if (str.charAt(0) == 'U') {
                 int x = Integer.parseInt(str.substring(2));
                 for (int i = 0; i < x; i++) {
                     curr = curr.prev;
                 }
-            } else if (first == 'D') {
+            } else if (str.charAt(0) == 'D') {
                 int x = Integer.parseInt(str.substring(2));
                 for (int i = 0; i < x; i++) {
                     curr = curr.next;
                 }
-            } else if (first == 'C') {
+            } else if (str.charAt(0) == 'C') {
                 stack.push(curr);
                 curr.removed = true;
                 Node up = curr.prev;
@@ -58,7 +56,7 @@ class Solution {
                 Node down = node.next;
                 
                 if (up != null) {
-                    up.next = node;                    
+                    up.next = node;
                 }
                 if (down != null) {
                     down.prev = node;
