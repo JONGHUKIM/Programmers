@@ -1,14 +1,16 @@
 import java.util.*;
 
 class Solution {
-    
+
+    // 노드 클래스
     private class Node {
-        boolean removed;
+        boolean removed; // 삭제 확인
         Node next;
         Node prev;
     }
     
-    Node[] nodeArr = new Node[1000000];
+    // 노드 배열 선언
+    Node nodeArr[] = new Node[1000000];
     
     public String solution(int n, int k, String[] cmd) {
         for (int i = 0; i < n; i++) {
@@ -20,8 +22,8 @@ class Solution {
             nodeArr[i].prev = nodeArr[i - 1];
         }
         
-        ArrayDeque<Node> stack = new ArrayDeque<>();
         Node curr = nodeArr[k];
+        ArrayDeque<Node> stack = new ArrayDeque<>();
         
         for (String str : cmd) {
             if (str.charAt(0) == 'U') {
@@ -41,7 +43,7 @@ class Solution {
                 Node down = curr.next;
                 
                 if (up != null) {
-                    up.next = down;
+                    up.next = down;               
                 }
                 if (down != null) {
                     down.prev = up;
@@ -74,5 +76,6 @@ class Solution {
         }
         
         return sb.toString();
+        
     }
 }
