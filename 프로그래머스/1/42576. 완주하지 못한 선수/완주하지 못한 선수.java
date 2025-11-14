@@ -1,3 +1,6 @@
+// 완주하지 못한 1명의 선수 구하기
+// 동명이인이 있을 수 있음
+
 import java.util.*;
 
 class Solution {
@@ -6,12 +9,12 @@ class Solution {
         
         HashMap<String, Integer> map = new HashMap<>();
         
-        for (String player : participant) {
-            map.put(player, map.getOrDefault(player, 0) + 1);
+        for (String pleyer : participant) {
+            map.put(pleyer, map.getOrDefault(pleyer, 0) + 1);
         }
         
-        for (String player : completion) {
-            map.put(player, map.get(player) - 1);
+        for (String pleyer : completion) {
+            map.put(pleyer, map.get(pleyer) - 1);
         }
         
         for (String key : map.keySet()) {
