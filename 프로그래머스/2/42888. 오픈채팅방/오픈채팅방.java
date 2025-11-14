@@ -31,6 +31,6 @@ class Solution {
             }
         }
         
-        return answer.stream().toArray(String[]::new);
+        return answer.toArray(new String[0]);
     }
 }
