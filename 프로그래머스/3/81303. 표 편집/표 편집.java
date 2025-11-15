@@ -13,10 +13,11 @@ class Solution {
     Node nodeArr[] = new Node[1000000];
     
     public String solution(int n, int k, String[] cmd) {
+        // 노드 생성
         for (int i = 0; i < n; i++) {
             nodeArr[i] = new Node();
         }
-        
+        // 노드 연결
         for (int i = 1; i < n; i++) {
             nodeArr[i - 1].next = nodeArr[i];
             nodeArr[i].prev = nodeArr[i - 1];
