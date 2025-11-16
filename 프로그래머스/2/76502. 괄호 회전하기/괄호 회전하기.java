@@ -1,3 +1,5 @@
+// 복습
+
 import java.util.*;
 
 class Solution {
@@ -12,17 +14,18 @@ class Solution {
         int result = 0;
         
         A:for (int i = 0; i < n; i++) {
-          ArrayDeque<Character> stack = new ArrayDeque<>();
+            ArrayDeque<Character> stack = new ArrayDeque<>();
             for (int j = i; j < i + n; j++) {
                 char c = s.charAt(j);
+                
                 if (!map.containsKey(c)) {
                     stack.push(c);
                 } else {
                     if (stack.isEmpty() || !stack.pop().equals(map.get(c))) {
-                        continue A;
+                    continue A;
                     }
                 }
-            }            
+            }
             if (stack.isEmpty()) {
                 result++;
             }
