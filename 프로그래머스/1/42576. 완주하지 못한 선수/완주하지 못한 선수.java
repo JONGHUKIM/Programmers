@@ -1,6 +1,3 @@
-// 완주하지 못한 1명의 선수 구하기
-// 동명이인이 있을 수 있음
-
 import java.util.*;
 
 class Solution {
@@ -9,14 +6,19 @@ class Solution {
         
         HashMap<String, Integer> map = new HashMap<>();
         
-        for (String pleyer : participant) {
-            map.put(pleyer, map.getOrDefault(pleyer, 0) + 1);
+        for (String str : participant) {
+                // 키(플레이어 이름), 벨류(1 or 2)
+            map.put(str, map.getOrDefault(str, 0) + 1);
         }
         
-        for (String pleyer : completion) {
-            map.put(pleyer, map.get(pleyer) - 1);
+        for (String str : completion) {
+            map.put(str, map.get(str) - 1);
         }
         
+        // {leo, leo, kiki} -> leo = 2, kiki = 1
+        // 2 - 1 = 1, 1 - 1 = 0
+        // 결국 leo = 1
+        // 따라서 key값이 0이 아니면 완주를 하지 못한 선수 
         for (String key : map.keySet()) {
             if (map.get(key) != 0) {
                 answer = key;
