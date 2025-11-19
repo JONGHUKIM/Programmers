@@ -22,23 +22,20 @@ class Solution {
         }
         
         Stream<Map.Entry<String, Integer>> sortedGenre = 
-            playMap.entrySet().stream().sorted((o1, o2) -> 
-                            Integer.compare(o2.getValue(), o1.getValue()));
+            playMap.entrySet().stream().sorted((o1 , o2) -> 
+                    Integer.compare(o2.getValue(), o1.getValue()));
         
-        sortedGenre.forEach(entry -> {
+        sortedGenre.forEach (entry -> {
            Stream<int[]> sortedSongs = 
                genreMap.get(entry.getKey()).stream().sorted((o1, o2) -> {
-              
-               if (o1[1] == o2[1]) {
-                   return Integer.compare(o1[0], o2[0]);
-               }
+                 if (o1[1] == o2[1]) {
+                     return Integer.compare(o1[0], o2[0]);
+                 }
                
                return Integer.compare(o2[1], o1[1]);
            }).limit(2);
-            
             sortedSongs.forEach(song -> answer.add(song[0]));
         });
-        
         return answer.stream().mapToInt(Integer::intValue).toArray();
     }
 }
