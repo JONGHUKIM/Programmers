@@ -3,13 +3,14 @@ import java.util.*;
 class Solution {
     
     ArrayList<String> answerList = new ArrayList<>();
-    HashMap<String, Integer> map = new HashMap<>();
+    Map<String, Integer> map = new HashMap<>();
     
     public String[] solution(String[] orders, int[] course) {
+        
         for (int i = 0; i < orders.length; i++) {
-            char[] arr = orders[i].toCharArray();   
-            Arrays.sort(arr);
-            orders[i] = String.valueOf(arr);
+            char[] a = orders[i].toCharArray();
+            Arrays.sort(a);
+            orders[i] = String.valueOf(a);
         }
         
         for (int courseLength : course) {
@@ -25,22 +26,19 @@ class Solution {
                 if (max > 1) {
                     for (String key : map.keySet()) {
                         if (map.get(key) == max) {
-                            answerList.add(key);                            
+                            answerList.add(key);
                         }
                     }
                 }
                 map.clear();
             }
         }
-        
-        Collections.sort(answerList);
-        
+        Collections.sort(answerList);         
         String[] answer = new String[answerList.size()];
         
         for (int i = 0; i < answer.length; i++) {
             answer[i] = answerList.get(i);
         }
-        
         return answer;
     }
     
