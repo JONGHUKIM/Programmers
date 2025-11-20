@@ -3,10 +3,11 @@ import java.util.*;
 class Solution {
     
     ArrayList<String> answerList = new ArrayList<>();
-    Map<String, Integer> map = new HashMap<>();
+    HashMap<String, Integer> map = new HashMap<>();    
     
     public String[] solution(String[] orders, int[] course) {
         
+        // 주문 정렬
         for (int i = 0; i < orders.length; i++) {
             char[] a = orders[i].toCharArray();
             Arrays.sort(a);
@@ -33,7 +34,8 @@ class Solution {
                 map.clear();
             }
         }
-        Collections.sort(answerList);         
+        
+        Collections.sort(answerList);
         String[] answer = new String[answerList.size()];
         
         for (int i = 0; i < answer.length; i++) {
@@ -51,7 +53,7 @@ class Solution {
         for (int i = 0; i < alpha.length(); i++) {
             char now = alpha.charAt(i);
             String nextAlpha = alpha.substring(i + 1);
-            combination(order + now, nextAlpha, count - 1);
+            combination(order + now, nextAlpha, count - 1);            
         }
     }
 }
