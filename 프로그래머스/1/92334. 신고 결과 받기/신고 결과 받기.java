@@ -2,6 +2,9 @@ import java.util.*;
 
 class Solution {
     public int[] solution(String[] id_list, String[] report, int k) {
+        int[] answer = new int[id_list.length];
+        
+        // 신고 당한 유저, 신고를 한 유저 (중복 제거를 위해 hashSet)
         HashMap<String, HashSet<String>> reportedUser = new HashMap<>();
         HashMap<String, Integer> mail = new HashMap<>();
         
@@ -25,11 +28,10 @@ class Solution {
             }
         }
         
-        int[] answer = new int[id_list.length];
-        
-        for (int i = 0; i < id_list.length; i++) {
+        for (int i = 0; i < answer.length; i++) {
             answer[i] = mail.getOrDefault(id_list[i], 0);
         }
+        
         return answer;
     }
 }
