@@ -1,23 +1,21 @@
 import java.util.*;
 
 class Solution {
-
-    // 노드 클래스
+    
     private class Node {
-        boolean removed; // 삭제 확인
+        boolean removed;
         Node next;
         Node prev;
     }
     
-    // 노드 배열 선언
-    Node nodeArr[] = new Node[1000000];
+    Node[] nodeArr = new Node[1000000];
     
     public String solution(int n, int k, String[] cmd) {
-        // 노드 생성
+        
         for (int i = 0; i < n; i++) {
             nodeArr[i] = new Node();
         }
-        // 노드 연결
+        
         for (int i = 1; i < n; i++) {
             nodeArr[i - 1].next = nodeArr[i];
             nodeArr[i].prev = nodeArr[i - 1];
@@ -44,7 +42,7 @@ class Solution {
                 Node down = curr.next;
                 
                 if (up != null) {
-                    up.next = down;               
+                    up.next = down;
                 }
                 if (down != null) {
                     down.prev = up;
@@ -55,12 +53,13 @@ class Solution {
             } else {
                 Node node = stack.pop();
                 node.removed = false;
+                
                 Node up = node.prev;
                 Node down = node.next;
                 
                 if (up != null) {
                     up.next = node;
-                }
+                } 
                 if (down != null) {
                     down.prev = node;
                 }
@@ -77,6 +76,5 @@ class Solution {
         }
         
         return sb.toString();
-        
     }
 }
