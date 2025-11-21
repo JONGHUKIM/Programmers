@@ -2,12 +2,11 @@ import java.util.*;
 
 class Solution {
     
-    ArrayList<String> answerList = new ArrayList<>();
-    HashMap<String, Integer> map = new HashMap<>();    
+    Map<String, Integer> map = new HashMap<>();
     
     public String[] solution(String[] orders, int[] course) {
+        List<String> answer = new ArrayList<>();
         
-        // 주문 정렬
         for (int i = 0; i < orders.length; i++) {
             char[] a = orders[i].toCharArray();
             Arrays.sort(a);
@@ -21,13 +20,13 @@ class Solution {
             }
             
             if (!map.isEmpty()) {
-                ArrayList<Integer> countList = new ArrayList<>(map.values());
+                List<Integer> countList = new ArrayList<>(map.values());
                 int max = Collections.max(countList);
                 
                 if (max > 1) {
                     for (String key : map.keySet()) {
                         if (map.get(key) == max) {
-                            answerList.add(key);
+                            answer.add(key);
                         }
                     }
                 }
@@ -35,13 +34,9 @@ class Solution {
             }
         }
         
-        Collections.sort(answerList);
-        String[] answer = new String[answerList.size()];
-        
-        for (int i = 0; i < answer.length; i++) {
-            answer[i] = answerList.get(i);
-        }
-        return answer;
+        return answer.stream()
+                     .sorted()
+                     .toArray(String[]::new);
     }
     
     private void combination(String order, String alpha, int count) {
@@ -53,7 +48,7 @@ class Solution {
         for (int i = 0; i < alpha.length(); i++) {
             char now = alpha.charAt(i);
             String nextAlpha = alpha.substring(i + 1);
-            combination(order + now, nextAlpha, count - 1);            
+            combination(order + now, nextAlpha, count - 1);
         }
     }
 }
