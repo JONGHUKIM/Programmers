@@ -4,7 +4,8 @@ class Solution {
         int start = 0;
         int end = 0;
         int sum = 0;
-        int min = Integer.MAX_VALUE; // 비교를 위해 가장 큰 값으로 설정    
+        // 비교를 위해 가장 큰 값으로 설정    
+        int min = Integer.MAX_VALUE;
         
         while (end != sequence.length) {
             sum += sequence[end];
