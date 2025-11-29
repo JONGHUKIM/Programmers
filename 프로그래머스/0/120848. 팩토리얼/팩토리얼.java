@@ -1,14 +1,15 @@
+// 팩토리얼
+
 class Solution {
     public int solution(int n) {
         int i = 1;
-        long factorial = 1;
+        int fact = 1;
         
-        while (true) {
-            factorial *= i;
-            
-            if (factorial > n) {
+        while(true) {
+            fact *= i;
+            if (fact > n) {
                 return i - 1;
-            } else if (factorial == n) {
+            } else if (fact == n ) {
                 return i;
             }
             i++;
