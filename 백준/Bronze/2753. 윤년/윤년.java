@@ -8,6 +8,7 @@ public class Main {
         
         int year = Integer.parseInt(br.readLine());
         
+        // 윤년 공식
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             System.out.println(1);
         } else {
