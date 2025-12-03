@@ -11,12 +11,10 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         StringTokenizer st = 
             new StringTokenizer(br.readLine());
-        HashMap<Integer, Integer> map = new HashMap<>();
+        HashSet<Integer> set = new HashSet<>();
         
         for (int i = 0; i < N; i++) {
-            int key = Integer.parseInt(st.nextToken());
-            
-            map.put(key, 1);
+            set.add(Integer.parseInt(st.nextToken()));
         }
         
         int M = Integer.parseInt(br.readLine());
@@ -27,7 +25,11 @@ public class Main {
         for (int i = 0; i < M; i++) {
             int target = Integer.parseInt(st.nextToken());
             
-            sb.append(map.getOrDefault(target, 0)).append(" ");
+            if (set.contains(target)) {
+                sb.append("1 ");
+            } else {
+                sb.append("0 ");
+            }
         }
         
         bw.write(sb.toString());
