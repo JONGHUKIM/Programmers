@@ -2,14 +2,14 @@ import java.util.*;
 
 class Solution {
     
-    List<int[]> column;
+    private List<int[]> column;
     
     public int[][] solution(int n) {
         column = new ArrayList<>();
         
         hanoi(n, 1, 2, 3);
         
-        return column.toArray(new int[column.size()][]);
+        return column.toArray(new int[column.size()][]);        
     }
     
     private void hanoi(int n, int start, int mid, int end) {
