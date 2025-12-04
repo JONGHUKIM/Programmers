@@ -5,22 +5,23 @@ class Solution {
     Map<String, Integer> map = new HashMap<>();
     
     public String[] solution(String[] orders, int[] course) {
+        
         for (int i = 0; i < orders.length; i++) {
             char[] arr = orders[i].toCharArray();
             Arrays.sort(arr);
-            orders[i] = String.valueOf(arr);
+            orders[i] = String.valueOf(arr);            
         }
         
-        List<String> answerList = new ArrayList<>();
+        ArrayList<String> answerList = new ArrayList<>();
         
-        for (int courseLength : course) {
-            
+        for (int courseList : course) {
             for (String order : orders) {
-                combination("", order, courseLength);
+                combination("", order, courseList);
             }
             
             if (!map.isEmpty()) {
-                List<Integer> countList = new ArrayList<>(map.values());
+                ArrayList<Integer> countList = new ArrayList<>(map.values());
+                
                 int max = Collections.max(countList);
                 
                 if (max > 1) {
@@ -33,16 +34,15 @@ class Solution {
                 map.clear();
             }
         }
-
+        
         Collections.sort(answerList);
         
-        String[] ans = new String[answerList.size()];
-        
-        for (int i = 0; i < ans.length; i++) {
-            ans[i] = answerList.get(i);
+        String[] answer = new String[answerList.size()];
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = answerList.get(i);
         }
         
-        return ans;
+        return answer;
     }
     
     private void combination(String order, String alpha, int count) {
