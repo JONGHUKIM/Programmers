@@ -5,6 +5,7 @@ class Solution {
         ArrayDeque<Character> stack = new ArrayDeque<>();
         
         char[] a = s.toCharArray();
+        
         for (char c : a) {
             if (c == '(') {
                 stack.push(c);
@@ -14,6 +15,7 @@ class Solution {
                 }
             }
         }
+
         return stack.isEmpty();
     }
 }
