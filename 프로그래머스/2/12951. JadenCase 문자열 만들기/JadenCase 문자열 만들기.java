@@ -1,5 +1,3 @@
-// 복습
-
 class Solution {
     public String solution(String s) {
         String[] words = s.toLowerCase().split(" ");
