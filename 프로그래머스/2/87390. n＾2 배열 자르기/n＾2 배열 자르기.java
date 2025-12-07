@@ -1,3 +1,5 @@
+// 복습
+
 class Solution {
     public int[] solution(int n, long left, long right) {
         int len = (int)(right - left + 1);
