@@ -1,3 +1,5 @@
+// 깃 연동 테스트
+
 class Solution {
     public int solution(int n) {
         double answer = Math.sqrt(n);
