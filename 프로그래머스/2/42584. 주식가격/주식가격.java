@@ -3,15 +3,16 @@ import java.util.*;
 class Solution {
     public int[] solution(int[] prices) {
         ArrayDeque<Integer> stack = new ArrayDeque<>();
+        
         int n = prices.length;
         int[] answer = new int[n];
         
         stack.push(0);
         
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             while (!stack.isEmpty() && prices[i] < prices[stack.peek()]) {
                 int j = stack.pop();
-                answer[j] = i - j;                
+                answer[j] = i - j;
             }
             stack.push(i);
         }
@@ -20,6 +21,7 @@ class Solution {
             int j = stack.pop();
             answer[j] = (n - 1) - j;
         }
+        
         return answer;
     }
 }
