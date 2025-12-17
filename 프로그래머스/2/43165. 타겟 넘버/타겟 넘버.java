@@ -5,7 +5,6 @@ class Solution {
     int target;
     
     private void dfs(int index, int sum) {
-        //종료 조건
         if (index == numbers.length) {
             if (sum == target) {
                 answer++;
@@ -13,7 +12,6 @@ class Solution {
             return;
         }
         
-        // 수행 동작
         dfs(index + 1, sum + numbers[index]);
         dfs(index + 1, sum - numbers[index]);
     }
@@ -21,7 +19,6 @@ class Solution {
     public int solution(int[] numbers, int target) {
         answer = 0;
         
-        // 멤버 변수 연결
         this.numbers = numbers;
         this.target = target;
         
