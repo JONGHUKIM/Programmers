@@ -3,16 +3,18 @@ import java.io.*;
 
 public class Main {
     
-    static int N, M, V;
     static ArrayList<Integer>[] graph;
     static boolean[] visited;
+    static int N, M, V;
     
     private static void dfs(int index) {
+        
         System.out.print(index + " ");
+        
         visited[index] = true;
         
         for (int next : graph[index]) {
-            if (!visited[next]) {
+            if(!visited[next]) {
                 dfs(next);
             }
         }
@@ -20,6 +22,7 @@ public class Main {
     
     private static void bfs() {
         ArrayDeque<Integer> que = new ArrayDeque<>();
+        
         visited = new boolean[N + 1];
         
         que.add(V);
@@ -35,9 +38,10 @@ public class Main {
                     que.add(next);
                 }
             }
+            
         }
     }
-    
+       
     public static void main(String[] args) throws IOException {
         BufferedReader br =
             new BufferedReader(new InputStreamReader(System.in));
@@ -48,9 +52,8 @@ public class Main {
         M = Integer.parseInt(st.nextToken());
         V = Integer.parseInt(st.nextToken());
         
-        visited = new boolean[N + 1];
-        
         graph = new ArrayList[N + 1];
+        
         for (int i = 1; i <= N; i++) {
             graph[i] = new ArrayList<>();
         }
@@ -68,6 +71,8 @@ public class Main {
             Collections.sort(graph[i]);
         }
         
+        visited = new boolean[N + 1];
+        
         dfs(V);
         
         System.out.println();
@@ -75,5 +80,6 @@ public class Main {
         bfs();
         
         br.close();
+        
     }
 }
