@@ -2,9 +2,11 @@ import java.util.*;
 
 class Solution {
     
+    // 상하좌우 
     static final int[] dx = {1, -1, 0, 0};
     static final int[] dy = {0, 0, -1, 1};
     
+    // 멤버변수 선언
     private boolean[][] visited;
     private int[][] maps;    
     private int n,m;
