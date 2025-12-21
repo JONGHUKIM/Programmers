@@ -70,7 +70,6 @@ class Solution {
             }
         }
         
-        // sb에 미리 O로 다 채우고 삭제된 것만 X로 변경
         StringBuilder sb = new StringBuilder("O".repeat(n));
         
         while(!stack.isEmpty()) {
