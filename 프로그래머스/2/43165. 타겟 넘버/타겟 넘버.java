@@ -1,29 +1,43 @@
+// BFS
+
+import java.util.*;
+
 class Solution {
     
-    int answer;
-    int[] numbers;
-    int target;
+    private int[] numbers;
+    private int target;
     
-    private void dfs(int index, int sum) {
-        if (index == numbers.length) {
-            if (sum == target) {
-                answer++;
-            }
-            return;
-        }
+    private int bfs() {
         
-        dfs(index + 1, sum + numbers[index]);
-        dfs(index + 1, sum - numbers[index]);
+        int count = 0;
+        
+        ArrayDeque<int[]> que = new ArrayDeque<>();
+        
+        que.add(new int[]{0, 0});
+        
+        while (!que.isEmpty()) {
+            int[] cur = que.poll();
+            int index = cur[0];
+            int sum = cur[1];
+            
+            if (index == numbers.length) {
+                if (sum == target) {
+                    count++;
+                }
+                continue;
+            }
+            
+            que.add(new int[]{index + 1, sum + numbers[index]});
+            que.add(new int[]{index + 1, sum - numbers[index]});
+        }
+        return count;
     }
     
     public int solution(int[] numbers, int target) {
-        answer = 0;
         
         this.numbers = numbers;
         this.target = target;
         
-        dfs(0, 0);
-        
-        return answer;
+        return bfs();
     }
 }
