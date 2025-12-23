@@ -1,13 +1,13 @@
 class Solution {
     
-    int node;
-    int[][] computers;
-    boolean[] visited;
+    private int n;
+    private int[][] computers;
+    private boolean[] visited;
     
     private void dfs(int index) {
         visited[index] = true;
         
-        for (int i = 0; i < node; i++) {
+        for (int i = 0; i < n; i++) {
             if (computers[index][i] == 1 && !visited[i]) {
                 dfs(i);
             }
@@ -17,7 +17,7 @@ class Solution {
     public int solution(int n, int[][] computers) {
         int answer = 0;
         
-        this.node = n;
+        this.n = n;
         this.computers = computers;
         
         visited = new boolean[n];
