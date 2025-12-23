@@ -3,16 +3,15 @@ import java.io.*;
 
 public class Main {
     
-    static int cpu, network;
-    static boolean[] visited;
-    static ArrayList<Integer>[] graph;
-    static int count = 0;
+    private static ArrayList<Integer>[] graph;
+    private static boolean[] visited;
+    private static int count;
     
     private static void dfs(int index) {
         visited[index] = true;
         
         for (int next : graph[index]) {
-            if(!visited[next]) {
+            if (!visited[next]) {
                 count++;
                 dfs(next);
             }
@@ -25,16 +24,17 @@ public class Main {
         BufferedWriter bw =
             new BufferedWriter(new OutputStreamWriter(System.out));
         
-        cpu = Integer.parseInt(br.readLine());
-        network = Integer.parseInt(br.readLine());
+        int cpu = Integer.parseInt(br.readLine());
+        int net = Integer.parseInt(br.readLine());
         
-        visited = new boolean[cpu + 1];
         graph = new ArrayList[cpu + 1];
         for (int i = 1; i <= cpu; i++) {
             graph[i] = new ArrayList<>();
         }
         
-        for (int i = 0; i < network; i++) {
+        visited = new boolean[cpu + 1];
+        
+        for (int i = 0; i < net; i++) {
             StringTokenizer st =
                 new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
@@ -44,12 +44,15 @@ public class Main {
             graph[y].add(x);
         }
         
+        for (int i = 1; i <= cpu; i++) {
+            Collections.sort(graph[i]);
+        }
+        
         dfs(1);
         
         bw.write(String.valueOf(count));
         bw.flush();
         bw.close();
         br.close();
-        
     }
 }
