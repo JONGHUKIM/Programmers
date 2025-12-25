@@ -2,6 +2,7 @@ import java.util.*;
 
 class Solution {
     
+    // 상하좌우 
     private final int[] dx = {1, -1, 0, 0};
     private final int[] dy = {0, 0, -1, 1};
     
@@ -9,6 +10,7 @@ class Solution {
     private int[][] maps;
     private int n, m;
     
+    // bfs 선언
     private int bfs() {
         ArrayDeque<int[]> que = new ArrayDeque<>();
         
