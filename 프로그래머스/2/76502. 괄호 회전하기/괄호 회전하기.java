@@ -3,6 +3,7 @@ import java.util.*;
 class Solution {
     public int solution(String s) {
         HashMap<Character, Character> map = new HashMap<>();
+        // 괄호 하드 코딩
         map.put(')', '(');
 		map.put('}', '{');
 		map.put(']', '[');
