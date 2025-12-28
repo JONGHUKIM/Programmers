@@ -24,6 +24,7 @@ class Solution {
         
         for (int i = 0; i < n; i++) {
             if (!visited[i]) {
+                // 증가
                 answer++;
                 dfs(i);
             }
