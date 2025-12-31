@@ -7,16 +7,18 @@ public class Main {
             new BufferedReader(new InputStreamReader(System.in));
         
         int n = Integer.parseInt(br.readLine());
-        int[] a = new int[n];
         int sum = 0;
-        long[] s = new long[n];
+        int[] a = new int[n];
+        int[] s = new int[n];
         
         StringTokenizer st =
             new StringTokenizer(br.readLine());
+        
         for (int i = 0; i < n; i++) {
             a[i] = Integer.parseInt(st.nextToken());
         }
         
+        // 정렬
         Arrays.sort(a);
         s[0] = a[0];
         for (int i = 1; i < n; i++) {
@@ -26,7 +28,6 @@ public class Main {
         for (int i = 0; i < n; i++) {
             sum += s[i];
         }
-        
         System.out.println(sum);
         br.close();
     }
