@@ -13,6 +13,7 @@ class Solution {
             int money = amount[i] * 100;
             
             while (money > 0 && !curName.equals("-")) {
+                // 수익의 10% 제외
                 pay.put(curName, pay.getOrDefault(curName, 0) + money - (money / 10));
                 curName = boss.get(curName);
                 money /= 10;
