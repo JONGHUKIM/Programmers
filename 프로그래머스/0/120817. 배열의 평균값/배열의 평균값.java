@@ -1,12 +1,13 @@
 class Solution {
     public double solution(int[] numbers) {
-        double avg = 0.0;
+        double answer = 0.0;
+        int sum = 0;
         
         for (int num : numbers) {
-            avg += num;
+            sum += num;
         }
         
-        double answer = avg / numbers.length;
+        answer = (double)sum / numbers.length;
         
         return answer;
     }
