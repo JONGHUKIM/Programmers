@@ -14,8 +14,8 @@ public class Main {
         }
         
         StringTokenizer st =
-            new StringTokenizer(s);        
-                
+            new StringTokenizer(s);
+        
         System.out.println(st.countTokens());
     }
 }
