@@ -23,6 +23,7 @@ class Solution {
     
     private void dfs(int depth, int remain, int[][] dungeons) {
         // 이미 모든 던전을 다 도는 경로를 찾았다면, 더 이상 탐색하지 않고 종료
+        // 성능을 위해 추가
         if (clearedAllDungeons) return;
         
         // 모든 던전을 하나씩 시도
