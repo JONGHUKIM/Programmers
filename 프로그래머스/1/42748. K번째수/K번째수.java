@@ -1,7 +1,5 @@
 import java.util.Arrays;
 
-// 복습
-
 class Solution {
     public int[] solution(int[] array, int[][] commands) {
         int[] answer = new int[commands.length];
@@ -11,8 +9,11 @@ class Solution {
             int end = commands[i][1];
             int k = commands[i][2] - 1;
             
+            // 자른 배열
             int[] temp = Arrays.copyOfRange(array, start, end);
+            // 정렬
             Arrays.sort(temp);
+            // K번째 수 뽑기
             answer[i] = temp[k];
         }
         
