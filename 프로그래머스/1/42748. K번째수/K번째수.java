@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 
 class Solution {
     public int[] solution(int[] array, int[][] commands) {
@@ -9,11 +9,8 @@ class Solution {
             int end = commands[i][1];
             int k = commands[i][2] - 1;
             
-            // 자른 배열
             int[] temp = Arrays.copyOfRange(array, start, end);
-            // 정렬
             Arrays.sort(temp);
-            // K번째 수 뽑기
             answer[i] = temp[k];
         }
         
