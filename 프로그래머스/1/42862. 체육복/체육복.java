@@ -2,19 +2,18 @@ import java.util.*;
 
 class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
-        HashSet<Integer> resSet = new HashSet<>();
-        HashSet<Integer> losSet = new HashSet<>();
+        Set<Integer> resSet = new HashSet<>();
+        Set<Integer> losSet = new HashSet<>();
         
         for (int i : reserve) {
             resSet.add(i);
         }
         
         for (int i : lost) {
-            if (resSet.contains(i)) {
+            if (resSet.contains(i))
                 resSet.remove(i);
-            } else {
+            else 
                 losSet.add(i);
-            }            
         }
         
         int answer = n - losSet.size();
