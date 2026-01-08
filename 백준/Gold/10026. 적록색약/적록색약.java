@@ -52,7 +52,6 @@ public class Main {
                     }
                 } 
             }
-            
         }
     }
     
@@ -104,5 +103,6 @@ public class Main {
         }
         
         System.out.println(nc + " " + bc);
+        br.close();
     }
 }
