@@ -58,6 +58,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br =
             new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw =
+            new BufferedWriter(new OutputStreamWriter(System.out));
         
         n = Integer.parseInt(br.readLine());
         // 색약인지 아닌지 확인하는 변수, 기본 값은 정상
@@ -102,7 +104,9 @@ public class Main {
             }
         }
         
-        System.out.println(nc + " " + bc);
+        bw.write(nc + " " + bc);
+        bw.flush();
+        bw.close();
         br.close();
     }
 }
