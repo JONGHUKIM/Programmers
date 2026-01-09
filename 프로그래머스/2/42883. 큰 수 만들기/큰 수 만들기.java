@@ -6,19 +6,16 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         
         for (char c : number.toCharArray()) {
-            
-            while(!stack.isEmpty() && k > 0 && stack.peekLast() < c) {
+            while (!stack.isEmpty() && k > 0 && stack.peekLast() < c) {
                 stack.pollLast();
                 
                 k--;
             }
-            
             stack.addLast(c);
         }
         
-        while (!stack.isEmpty() && k > 0) {
+        while (k > 0) {
             stack.pollLast();
-            
             k--;
         }
         
