@@ -36,7 +36,6 @@ class Solution {
         info[pos] = backupI;
         visited[pos][backupS][backupW] = false;
         
-        
     }
     
     public int solution(int[] info, int[][] edges) {
