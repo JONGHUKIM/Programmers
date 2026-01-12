@@ -16,6 +16,7 @@ class Solution {
             }
             
             if (sum == k) {
+                // 길이비교
                 int leng = end - start + 1;
                 if (leng < min) {
                     min = leng;
