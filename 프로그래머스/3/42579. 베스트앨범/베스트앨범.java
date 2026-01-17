@@ -3,7 +3,6 @@ import java.util.stream.*;
 
 class Solution {
     public int[] solution(String[] genres, int[] plays) {
-                
         Map<String, ArrayList<int[]>> genreMap = new HashMap<>();
         Map<String, Integer> playMap = new HashMap<>();
         
@@ -11,7 +10,7 @@ class Solution {
             String genre = genres[i];
             int play = plays[i];
             
-            if (!genreMap.containsKey(genre)) {
+            if(!genreMap.containsKey(genre)) {
                 genreMap.put(genre, new ArrayList<>());
                 playMap.put(genre, 0);
             }
@@ -20,24 +19,28 @@ class Solution {
             playMap.put(genre, playMap.getOrDefault(genre, 0) + play);
         }
         
-        ArrayList<Integer> answer = new ArrayList<>();
+        List<Integer> answer = new ArrayList<>();
         
         Stream<Map.Entry<String, Integer>> sortedGenre = 
             playMap.entrySet().stream()
-                   .sorted((o1, o2) -> Integer.compare(o2.getValue(), o1.getValue()));
+                              .sorted((o1, o2) -> {
+                                  return Integer.compare(o2.getValue(), o1.getValue());
+                              });
         
         sortedGenre.forEach(entry -> {
             Stream<int[]> sortedSongs = 
                 genreMap.get(entry.getKey()).stream()
                         .sorted((o1, o2) -> {
-                            if (o1[1] == o2[1]) {
+                            if(o1[1] == o2[1]) {
                                 return Integer.compare(o1[0], o2[0]);
                             }
                             return Integer.compare(o2[1], o1[1]);
                         }).limit(2);
+            
             sortedSongs.forEach(song -> answer.add(song[0]));
         });
         
+        // 스트림
         return answer.stream().mapToInt(Integer::intValue).toArray();
     }
 }
