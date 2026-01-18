@@ -46,6 +46,7 @@ class Solution {
             graph[i] = new ArrayList<>();
         }
         
+        // 부모노드 자식 노드 잇기
         for (int[] edge : edges) {
             graph[edge[0]].add(edge[1]);
             graph[edge[1]].add(edge[0]);
