@@ -58,7 +58,7 @@ class Solution {
                     curr = prev[curr];
                 }
             } else if (op == 'Z') {
-                // 삭제 됐던 행 복구
+                // 삭제 됐던 행 복구!!
                 int removed = stack.pop();
                 
                 if (prev[removed] != -1) {
